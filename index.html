@@ -76,18 +76,20 @@
     padding:80px 24px 60px;
     min-height:90vh;
     display:flex;flex-direction:column;justify-content:flex-end;
-    background:
-      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(214,255,63,0.06), transparent 60%);
+    background-color:var(--bg);
+    background-image:
+      linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.4) 55%, rgba(10,10,10,0.95) 100%),
+      url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201200%20800%22%20preserveAspectRatio%3D%22xMidYMax%20slice%22%3E%20%3Cdefs%3E%20%3CradialGradient%20id%3D%22glow%22%20cx%3D%2250%25%22%20cy%3D%2225%25%22%20r%3D%2265%25%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%233a3a3a%22%20stop-opacity%3D%220.9%22/%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230a0a0a%22%20stop-opacity%3D%220%22/%3E%20%3C/radialGradient%3E%20%3ClinearGradient%20id%3D%22carbody%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2352524f%22/%3E%20%3Cstop%20offset%3D%2255%25%22%20stop-color%3D%22%232c2c2a%22/%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23141413%22/%3E%20%3C/linearGradient%3E%20%3ClinearGradient%20id%3D%22glass%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%236a6a66%22/%3E%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23252523%22/%3E%20%3C/linearGradient%3E%20%3C/defs%3E%20%3Crect%20width%3D%221200%22%20height%3D%22800%22%20fill%3D%22%230a0a0a%22/%3E%20%3Cellipse%20cx%3D%22700%22%20cy%3D%22260%22%20rx%3D%22650%22%20ry%3D%22420%22%20fill%3D%22url%28%23glow%29%22/%3E%20%3Cpath%20d%3D%22M%2080%20560%20C%20140%20480%2C%20260%20430%2C%20380%20410%20C%20460%20397%2C%20520%20388%2C%20590%20350%20C%20690%20296%2C%20800%20250%2C%20940%20240%20C%201080%20230%2C%201180%20270%2C%201200%20330%20L%201200%20600%20C%201050%20640%2C%20850%20660%2C%20650%20660%20C%20430%20660%2C%20220%20640%2C%2080%20600%20Z%22%20fill%3D%22url%28%23carbody%29%22/%3E%20%3Cpath%20d%3D%22M%20590%20350%20C%20690%20296%2C%20800%20250%2C%20940%20240%20C%20990%20237%2C%201030%20245%2C%201060%20262%20L%201000%20330%20C%20900%20320%2C%20760%20345%2C%20660%20390%20Z%22%20fill%3D%22url%28%23glass%29%22%20opacity%3D%220.85%22/%3E%20%3Cpath%20d%3D%22M%20590%20350%20C%20690%20296%2C%20800%20250%2C%20940%20240%22%20fill%3D%22none%22%20stroke%3D%22%238a8a85%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20opacity%3D%220.5%22/%3E%20%3Cellipse%20cx%3D%22640%22%20cy%3D%22372%22%20rx%3D%2220%22%20ry%3D%2211%22%20fill%3D%22%231a1a18%22%20transform%3D%22rotate%28-18%20640%20372%29%22/%3E%20%3Cellipse%20cx%3D%221140%22%20cy%3D%22370%22%20rx%3D%2246%22%20ry%3D%2222%22%20fill%3D%22%23d6ff3f%22%20opacity%3D%220.18%22%20transform%3D%22rotate%28-8%201140%20370%29%22/%3E%20%3Cellipse%20cx%3D%221140%22%20cy%3D%22370%22%20rx%3D%2222%22%20ry%3D%2210%22%20fill%3D%22%23d6ff3f%22%20opacity%3D%220.35%22%20transform%3D%22rotate%28-8%201140%20370%29%22/%3E%20%3Cellipse%20cx%3D%22280%22%20cy%3D%22600%22%20rx%3D%22120%22%20ry%3D%22100%22%20fill%3D%22%230a0a0a%22/%3E%20%3Cellipse%20cx%3D%22980%22%20cy%3D%22610%22%20rx%3D%22130%22%20ry%3D%22105%22%20fill%3D%22%230a0a0a%22/%3E%20%3Ccircle%20cx%3D%22280%22%20cy%3D%22620%22%20r%3D%2278%22%20fill%3D%22%231c1c1a%22/%3E%20%3Ccircle%20cx%3D%22280%22%20cy%3D%22620%22%20r%3D%2238%22%20fill%3D%22%230a0a0a%22/%3E%20%3Ccircle%20cx%3D%22280%22%20cy%3D%22620%22%20r%3D%2238%22%20fill%3D%22none%22%20stroke%3D%22%233a3a38%22%20stroke-width%3D%222%22/%3E%20%3Ccircle%20cx%3D%22980%22%20cy%3D%22630%22%20r%3D%2282%22%20fill%3D%22%231c1c1a%22/%3E%20%3Ccircle%20cx%3D%22980%22%20cy%3D%22630%22%20r%3D%2240%22%20fill%3D%22%230a0a0a%22/%3E%20%3Ccircle%20cx%3D%22980%22%20cy%3D%22630%22%20r%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%233a3a38%22%20stroke-width%3D%222%22/%3E%20%3Cpath%20d%3D%22M%20560%20420%20C%20620%20470%2C%20700%20540%2C%20760%20640%22%20fill%3D%22none%22%20stroke%3D%22%231a1a18%22%20stroke-width%3D%222%22%20opacity%3D%220.6%22/%3E%20%3Cellipse%20cx%3D%22650%22%20cy%3D%22700%22%20rx%3D%22620%22%20ry%3D%2260%22%20fill%3D%22%23000000%22%20opacity%3D%220.55%22/%3E%20%3Cpath%20d%3D%22M%20590%20350%20C%20690%20296%2C%20800%20250%2C%20940%20240%22%20fill%3D%22none%22%20stroke%3D%22%23d6ff3f%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20opacity%3D%220.25%22/%3E%20%3C/svg%3E');
+    background-repeat:no-repeat, no-repeat;
+    background-position:center top, center 60px;
+    background-size:cover, 160% auto;
     overflow:hidden;
   }
-  .hero::after{
-    content:'';
-    position:absolute;top:0;right:-10%;width:90%;height:60%;
-    background:
-      linear-gradient(180deg, rgba(40,40,40,0.5), transparent),
-      url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400"%3E%3Cellipse cx="650" cy="180" rx="500" ry="120" fill="%23222" /%3E%3C/svg%3E');
-    opacity:0.5;
-    pointer-events:none;
+  @media (min-width:860px){
+    .hero{
+      background-position:center top, center top;
+      background-size:cover, 90% auto;
+    }
   }
   .hero-eyebrow{
     display:flex;align-items:center;gap:10px;color:var(--text-dim);
@@ -163,10 +165,6 @@
     transition:border-color .25s ease, transform .25s ease;
   }
   .price-card:hover{border-color:rgba(214,255,63,0.4);transform:translateY(-4px);}
-  .price-card.featured{
-    border-color:var(--accent);
-    box-shadow:0 0 0 1px var(--accent), 0 0 40px rgba(214,255,63,0.08);
-  }
   .price-top{display:flex;justify-content:space-between;align-items:flex-start;}
   .price-num{color:var(--text-dim);font-size:0.8rem;letter-spacing:0.15em;font-weight:700;}
   .price-arrow{
@@ -174,7 +172,6 @@
     display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:1rem;
     transition:all .25s ease;
   }
-  .price-card.featured .price-arrow{border-color:var(--accent);color:var(--accent);}
   .price-title{font-size:1.5rem;font-weight:800;margin-top:30px;letter-spacing:-0.01em;}
   .price-desc{color:var(--text-dim);font-size:0.92rem;margin-top:8px;}
   .price-bottom{
@@ -184,7 +181,6 @@
   .price-from{color:var(--text-dim);font-size:0.7rem;letter-spacing:0.2em;font-weight:700;}
   .price-value{font-size:2rem;font-weight:800;}
   .price-value span{font-size:1.1rem;color:var(--text-dim);font-weight:700;}
-  .price-card.featured .price-value{color:var(--accent);}
 
   /* BOOKING */
   .booking-card{
@@ -586,7 +582,7 @@
         </div>
       </div>
 
-      <div class="price-card featured">
+      <div class="price-card">
         <div>
           <div class="price-top"><div class="price-num">04</div><div class="price-arrow">↗</div></div>
           <div class="price-title">
@@ -1107,11 +1103,13 @@
   function setLang(lang){
     document.documentElement.setAttribute('lang', lang);
     langButtons.forEach(b=>b.classList.toggle('active', b.dataset.setLang===lang));
-    localStorage.setItem('site-lang', lang);
+    try{ localStorage.setItem('site-lang', lang); }catch(e){}
     updateStepLabel();
   }
   langButtons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.setLang)));
-  setLang(localStorage.getItem('site-lang') || 'lv');
+  let savedLang = 'lv';
+  try{ savedLang = localStorage.getItem('site-lang') || 'lv'; }catch(e){}
+  setLang(savedLang);
 
   function scrollToBooking(){
     document.getElementById('booking').scrollIntoView({behavior:'smooth'});
