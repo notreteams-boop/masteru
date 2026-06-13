@@ -891,21 +891,26 @@ async function sendMsg(){
   if(!txt) return;
   chatInp.value=''; chatSnd.disabled=true;
   addMsg('u', txt);
-  chatHistory.push({role:'user', parts:[{text:txt}]});
+  chatHistory.push({ role:'user', parts:[{ text: txt }] });
   const typ = showTyping();
   try{
+    // Формируем contents из истории + системный промпт в первом сообщении
+    var contents = chatHistory.map((m, i) => {
+      if(i === 0 && m.role === 'user') {
+        return { role: 'user', parts:[{ text: 'Ты AI-ассистент автосервиса ABTOTEX.PRO в Риге. Отвечай кратко на языке пользователя. Помогай с вопросами об авто, услугах и записи.\n\n' + m.parts[0].text }] };
+      }
+      return { role: m.role, parts: m.parts };
+    });
     const res = await fetch(WORKER,{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({
-        history: chatHistory, message: txt,
-        systemPrompt:'Ты AI-ассистент автосервиса ABTOTEX.PRO в Риге. Отвечай кратко на языке пользователя. Помогай с вопросами об авто, услугах и записи.'
-      })
+      body: JSON.stringify({ contents: contents })
     });
     const data = await res.json();
-    const reply = data.reply||data.text||data.response||(data.candidates?.[0]?.content?.parts?.[0]?.text)||LANGS[lang].err;
+    // Парсим ответ Gemini
+    const reply = (data.candidates?.[0]?.content?.parts?.[0]?.text) || LANGS[lang].err;
     typ.remove(); addMsg('a', reply);
-    chatHistory.push({role:'model', parts:[{text:reply}]});
+    chatHistory.push({ role:'model', parts:[{ text: reply }] });
   }catch(e){ typ.remove(); addMsg('a', LANGS[lang].err); }
   chatSnd.disabled = !chatInp.value.trim();
   chatInp.focus();
