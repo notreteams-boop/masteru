@@ -69,6 +69,33 @@
   .menu-btn span::before,.menu-btn span::after{content:'';position:absolute;left:0;width:18px;height:2px;background:#fff;}
   .menu-btn span::before{top:-6px;}
   .menu-btn span::after{top:6px;}
+  .menu-btn.open span{background:transparent;}
+  .menu-btn.open span::before{transform:rotate(45deg);top:0;}
+  .menu-btn.open span::after{transform:rotate(-45deg);top:0;}
+
+  /* MOBILE NAV DRAWER */
+  .mobile-nav{
+    position:fixed;inset:0;z-index:99;
+    background:rgba(10,10,10,0.97);
+    backdrop-filter:blur(16px);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
+    opacity:0;pointer-events:none;
+    transition:opacity .3s ease;
+  }
+  .mobile-nav.open{opacity:1;pointer-events:auto;}
+  .mobile-nav a{
+    display:block;color:#fff;text-decoration:none;font-weight:800;
+    font-size:clamp(1.8rem,7vw,3rem);letter-spacing:-0.02em;
+    padding:16px 32px;border-bottom:1px solid var(--line);width:100%;text-align:center;
+    transition:color .2s ease;
+  }
+  .mobile-nav a:last-child{border-bottom:none;}
+  .mobile-nav a:hover{color:var(--accent);}
+  .mobile-nav-book{
+    margin-top:32px;background:var(--accent);color:#0a0a0a!important;
+    border-radius:999px;padding:18px 40px!important;width:auto!important;
+    font-size:1.1rem!important;
+  }
 
   /* HERO */
   .hero{
@@ -412,6 +439,11 @@
   html[lang="lv"] div[data-lang="lv"], html[lang="lv"] p[data-lang="lv"],
   html[lang="ru"] div[data-lang="ru"], html[lang="ru"] p[data-lang="ru"],
   html[lang="en"] div[data-lang="en"], html[lang="en"] p[data-lang="en"]{display:block;}
+  /* mobile nav links */
+  .mobile-nav a[data-lang]{display:none;}
+  html[lang="lv"] .mobile-nav a[data-lang="lv"],
+  html[lang="ru"] .mobile-nav a[data-lang="ru"],
+  html[lang="en"] .mobile-nav a[data-lang="en"]{display:block;}
 </style>
 </head>
 <body>
@@ -432,10 +464,23 @@
         <span data-lang="en">Sign up</span>
         <span class="pulse"></span>
       </button>
-      <button class="menu-btn" aria-label="menu"><span></span></button>
+      <button class="menu-btn" aria-label="menu" id="menuBtn"><span></span></button>
     </div>
   </div>
 </header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#pricing" class="mobile-nav-link" data-lang="lv">Pakalpojumi</a>
+  <a href="#pricing" class="mobile-nav-link" data-lang="ru" style="display:none">Услуги</a>
+  <a href="#pricing" class="mobile-nav-link" data-lang="en" style="display:none">Services</a>
+  <a href="#booking" class="mobile-nav-link" data-lang="lv">Pieraksts</a>
+  <a href="#booking" class="mobile-nav-link" data-lang="ru" style="display:none">Запись</a>
+  <a href="#booking" class="mobile-nav-link" data-lang="en" style="display:none">Booking</a>
+  <a href="#booking" class="mobile-nav-book" data-lang="lv">Pierakstīties →</a>
+  <a href="#booking" class="mobile-nav-book" data-lang="ru" style="display:none">Записаться →</a>
+  <a href="#booking" class="mobile-nav-book" data-lang="en" style="display:none">Book now →</a>
+</nav>
 
 <!-- HERO -->
 <div class="hero">
@@ -667,7 +712,7 @@
     <div class="booking-card">
       <div class="progress-row">
         <div class="progress-label">
-          <span data-lang="lv"><span class="step-of-text"></span></span>
+          <span class="step-of-text"></span>
         </div>
         <div class="progress-pct" id="progressPct">25%</div>
       </div>
@@ -1265,6 +1310,30 @@
   });
   chatClose.addEventListener('click', ()=>{
     chatPanel.classList.remove('open');
+  });
+
+  /* ===== HAMBURGER MENU ===== */
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  menuBtn.addEventListener('click', ()=>{
+    const isOpen = mobileNav.classList.toggle('open');
+    menuBtn.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileNav.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      mobileNav.classList.remove('open');
+      menuBtn.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* ===== PRICE CARD CLICK → BOOKING ===== */
+  document.querySelectorAll('.price-card').forEach(card=>{
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', ()=>{
+      scrollToBooking();
+    });
   });
 </script>
 </body>
